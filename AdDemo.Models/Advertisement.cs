@@ -22,7 +22,8 @@ namespace AdDemo.Models
         public DateTime? DeletedOn { get; set; }
 
         public int CropId { get; set; }
-        public Crop crop { get; set; }
+        //public Crop crop { get; set; }
+        public int VendorId { get; set; }
 
     }
 }

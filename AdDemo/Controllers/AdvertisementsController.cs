@@ -48,7 +48,7 @@ namespace AdDemo.Controllers
         }
 
         [HttpPost]
-        public ActionResult<AdvertisementDto> CreateAdvertisement(CreateAdvertisementDto advertisement )
+        public ActionResult<AdvertisementDto> CreateAdvertisement(CreateAdvertisementDto advertisement)
         {
 
             var advertisementEntity = _mapper.Map<Advertisement>(advertisement);

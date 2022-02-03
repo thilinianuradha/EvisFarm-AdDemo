@@ -1,5 +1,6 @@
 using AdDemo.Services.Advertisements;
 using AdDemo.Services.Crops;
+using AdDemo.Services.Vendors;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +13,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddScoped<IAdvetisementRepository, AdvertisementSqlServerService>();
 builder.Services.AddScoped<ICropRepository, CropSqlServerService>();
+builder.Services.AddScoped<IVendorRepository, VendorSqlServerService>();
 
 var app = builder.Build();
 

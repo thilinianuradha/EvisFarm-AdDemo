@@ -1,14 +1,13 @@
-﻿using AdDemo.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AdDemo.DataAccess;
+using AdDemo.Models;
 
 namespace AdDemo.Services.Crops
 {
-    
     public class CropSqlServerService : ICropRepository
     {
         private readonly AdvertisementDbContext _context = new AdvertisementDbContext();
@@ -17,11 +16,11 @@ namespace AdDemo.Services.Crops
             return _context.Crops.ToList();
         }
 
-       
+
 
         public Crop GetCrop(int id)
         {
-          return _context.Crops.Find(id);
+            return _context.Crops.Find(id);
         }
     }
 }

@@ -12,6 +12,7 @@ namespace AdDemo.DataAccess
     {
         public DbSet<Advertisement> Advertisements { get; set; }
         public DbSet<Crop> Crops { get; set; }
+        public DbSet<Vendor> Vendors { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             var connectionString = @"Server = (localdb)\mssqllocaldb;  Database = EvisFarmDb; Trusted_Connection = True";
@@ -124,6 +125,63 @@ namespace AdDemo.DataAccess
 
             }
             });
+            modelBuilder.Entity<Vendor>().HasData(new Vendor[]
+        {new Vendor
+            {
+               Id = 01,
+               FullName = "Thilini Anuradha",
+               Location ="Anuradhapura",
+               NoofPendingRequests = 1,
+               NoofInprogressAds = 0,
+               NoofClosedAds = 0,
+            },
+            new Vendor
+            {
+               Id = 02,
+               FullName = "Piyumi Thathsarani",
+               Location ="Mathara",
+               NoofPendingRequests = 4,
+               NoofInprogressAds = 1,
+               NoofClosedAds = 3,
+            },
+            new Vendor
+            {
+               Id = 03,
+               FullName = "Thanuja Mahendran",
+               Location ="Jaffna",
+               NoofPendingRequests = 5,
+               NoofInprogressAds = 0,
+               NoofClosedAds = 3,
+            },
+            new Vendor
+            {
+               Id = 04,
+               FullName = "Umesha Nirmani",
+               Location ="Awissawella",
+               NoofPendingRequests = 1,
+               NoofInprogressAds = 3,
+               NoofClosedAds = 0,
+            },
+            new Vendor
+            {
+               Id = 05,
+               FullName = "Nirmani Herath",
+               Location ="Monaragala",
+               NoofPendingRequests = 4,
+               NoofInprogressAds = 5,
+               NoofClosedAds = 0,
+            },
+            new Vendor
+            {
+               Id = 06,
+               FullName = "Thilini Erandi",
+               Location ="Galle",
+               NoofPendingRequests = 1,
+               NoofInprogressAds = 4,
+               NoofClosedAds = 3,
+            }
+        });
+
 
         }
     }

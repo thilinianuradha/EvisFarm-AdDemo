@@ -17,6 +17,7 @@ namespace AdDemo.Services.Advertisements
         }
 
         public Advertisement GetAdvertisement(int id)
+
         {
            return _context.Advertisements.Find(id);
         }
