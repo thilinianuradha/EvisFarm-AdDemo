@@ -20,5 +20,13 @@ namespace AdDemo.Services.Vendors
         {
             return _context.Vendors.Find(id); 
         }
+        public Vendor AddVendor(Vendor vendor)
+        {
+            _context.Vendors.Add(vendor);
+            _context.SaveChanges();
+
+            return _context.Vendors.Find(vendor.Id);
+
+        }
     }
 }

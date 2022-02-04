@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using AdDemo.Services.Vendors;
-
+using AdDemo.Services.Vendors.ViewModels;
+using AdDemo.Models;
+using AutoMapper;
 
 namespace AdDemo.Controllers
 {
@@ -10,9 +12,11 @@ namespace AdDemo.Controllers
     public class VendorsController : ControllerBase
     {
         private readonly IVendorRepository _service;
-        public VendorsController(IVendorRepository service)
+        private readonly IMapper _mapper;
+        public VendorsController(IVendorRepository repository, IMapper mapper)
         {
-            _service = service;
+            _service = repository;
+            _mapper = mapper;
 
         }
         [HttpGet]
@@ -28,5 +32,16 @@ namespace AdDemo.Controllers
             return Ok(vendor);
         }
 
+        [HttpPost]
+        public ActionResult<VendorDto> CreateVendor(CreateVendorDto vendor)
+        {
+
+            var vendorEntity = _mapper.Map<Vendor>(vendor);
+            var newVendor = _service.AddVendor(vendorEntity);
+
+
+            var vendorForReturn = _mapper.Map<VendorDto>(newVendor);
+            return CreatedAtRoute("GetVendor", new { id = vendorForReturn.Id }, value: vendorForReturn);
+        }
     }
 }
