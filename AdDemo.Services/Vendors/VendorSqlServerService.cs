@@ -28,5 +28,17 @@ namespace AdDemo.Services.Vendors
             return _context.Vendors.Find(vendor.Id);
 
         }
+        public void UpdateVendor(Vendor vendor)
+        {
+            _context.SaveChanges();
+
+        }
+
+        public void DeleteVendor(Vendor vendor)
+        {
+            _context.Remove(vendor);
+            _context.SaveChanges();
+
+        }
     }
 }

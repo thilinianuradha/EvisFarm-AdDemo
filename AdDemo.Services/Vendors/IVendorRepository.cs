@@ -12,6 +12,8 @@ namespace AdDemo.Services.Vendors
         public List<Vendor> GetAllVendors();
         public Vendor GetVendor(int id);
         public Vendor AddVendor(Vendor vendor);
+        public void UpdateVendor(Vendor vendor);
+        public void DeleteVendor(Vendor vendor);
     }
 
 }

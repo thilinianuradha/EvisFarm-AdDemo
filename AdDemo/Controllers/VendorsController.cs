@@ -43,5 +43,32 @@ namespace AdDemo.Controllers
             var vendorForReturn = _mapper.Map<VendorDto>(newVendor);
             return CreatedAtRoute("GetVendor", new { id = vendorForReturn.Id }, value: vendorForReturn);
         }
+        [HttpPut]
+        public ActionResult UpdateVendor(int Id, UpdateVendorDto vendor)
+        {
+            var UpdatingVendor = _service.GetVendor(Id);
+            if (UpdatingVendor is null)
+            {
+                return NotFound();
+            }
+            _mapper.Map(vendor, UpdatingVendor);
+            _service.UpdateVendor(UpdatingVendor);
+
+            return NoContent();
+        }
+
+        [HttpDelete]
+
+        public ActionResult DeleteVendor(int Id)
+        {
+            var DeletingVendor = _service.GetVendor(Id);
+            if (DeletingVendor is null)
+            {
+                return NotFound();
+            }
+            _service.DeleteVendor(DeletingVendor);
+            return NoContent();
+        }
+
     }
 }
