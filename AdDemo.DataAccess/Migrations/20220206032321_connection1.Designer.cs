@@ -4,6 +4,7 @@ using AdDemo.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AdDemo.DataAccess.Migrations
 {
     [DbContext(typeof(AdvertisementDbContext))]
-    partial class AdvertisementDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220206032321_connection1")]
+    partial class connection1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -74,14 +76,9 @@ namespace AdDemo.DataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("VendorID")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.HasIndex("CropId");
-
-                    b.HasIndex("VendorID");
 
                     b.ToTable("Advertisements");
 
@@ -100,8 +97,7 @@ namespace AdDemo.DataAccess.Migrations
                             IsAvailable = true,
                             IsDeleted = false,
                             Lastmodifieddate = new DateTime(2022, 1, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Location = "Anuradhapura",
-                            VendorID = 0
+                            Location = "Anuradhapura"
                         },
                         new
                         {
@@ -117,8 +113,7 @@ namespace AdDemo.DataAccess.Migrations
                             IsAvailable = true,
                             IsDeleted = false,
                             Lastmodifieddate = new DateTime(2022, 2, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Location = "Colombo",
-                            VendorID = 0
+                            Location = "Colombo"
                         },
                         new
                         {
@@ -134,8 +129,7 @@ namespace AdDemo.DataAccess.Migrations
                             IsAvailable = true,
                             IsDeleted = false,
                             Lastmodifieddate = new DateTime(2022, 1, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Location = "Kandy",
-                            VendorID = 0
+                            Location = "Kandy"
                         },
                         new
                         {
@@ -151,8 +145,7 @@ namespace AdDemo.DataAccess.Migrations
                             IsAvailable = true,
                             IsDeleted = false,
                             Lastmodifieddate = new DateTime(2022, 1, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Location = "Badulla",
-                            VendorID = 0
+                            Location = "Badulla"
                         });
                 });
 
@@ -458,21 +451,11 @@ namespace AdDemo.DataAccess.Migrations
 
             modelBuilder.Entity("AdDemo.Models.Advertisement", b =>
                 {
-                    b.HasOne("AdDemo.Models.Crop", "crop")
+                    b.HasOne("AdDemo.Models.Crop", null)
                         .WithMany("Advertisements")
                         .HasForeignKey("CropId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.HasOne("AdDemo.Models.Vendor", "vendor")
-                        .WithMany()
-                        .HasForeignKey("VendorID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("crop");
-
-                    b.Navigation("vendor");
                 });
 
             modelBuilder.Entity("AdDemo.Models.Crop", b =>

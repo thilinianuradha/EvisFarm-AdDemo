@@ -5,8 +5,6 @@ namespace AdDemo.Models
     public class Advertisement
     {
         public int Id { get; set; }
-        [Required]
-        [MaxLength (100)]
         public string Location { get; set; }
         public string? Description { get; set; }
         public string? EstimatedPrice { get; set; }
@@ -22,8 +20,12 @@ namespace AdDemo.Models
         public DateTime? DeletedOn { get; set; }
 
         public int CropId { get; set; }
-        //public Crop crop { get; set; }
-        public int VendorId { get; set; }
+        public Crop crop { get; set; }
+
+        public int VendorID { get; set; }
+        public Vendor vendor { get; set; }
+
+        
 
     }
 }

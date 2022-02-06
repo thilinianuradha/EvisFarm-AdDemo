@@ -1,4 +1,5 @@
 using AdDemo.Services.Advertisements;
+using AdDemo.Services.Buyers;
 using AdDemo.Services.Crops;
 using AdDemo.Services.Vendors;
 
@@ -14,6 +15,7 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddScoped<IAdvetisementRepository, AdvertisementSqlServerService>();
 builder.Services.AddScoped<ICropRepository, CropSqlServerService>();
 builder.Services.AddScoped<IVendorRepository, VendorSqlServerService>();
+builder.Services.AddScoped<IBuyerRepository, BuyerSqlServerService>();
 
 var app = builder.Build();
 

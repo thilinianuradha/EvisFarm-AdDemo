@@ -15,10 +15,10 @@ namespace AdDemo.Models
         public int NoofInprogressAds { get; set; }
         public int NoofClosedAds { get; set; }
 
-        public ICollection<Advertisement> Advertisements { get; set; } = new List<Advertisement>();
+       
 
+        public List<Advertisement> Advertisements { get; set; }
 
-        public int CropId { get; set; }
 
     }
 }

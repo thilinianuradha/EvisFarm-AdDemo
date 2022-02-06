@@ -1,25 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdDemo.Models
+namespace AdDemo.Services.Crops.ViewModels
 {
-    public class Crop
+    public class CropDto
     {
         public int Id { get; set; }
-        [Required]
-        [MaxLength(255)]
         public string? CropType { get; set; }
         public string? CropName { get; set; }
         public bool IsAvailable { get; set; }
         public int NoOfAdvertisements { get; set; }
-
-        public List<Advertisement> Advertisements { get; set;}
-
-
-
     }
 }

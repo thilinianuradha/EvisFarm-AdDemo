@@ -43,8 +43,8 @@ namespace AdDemo.Controllers
                 return NotFound();
             }
 
-            var mappedAuthor = _mapper.Map<AdvertisementDto>(advertisement);
-            return Ok(mappedAuthor);
+            var mappedVendor = _mapper.Map<AdvertisementDto>(advertisement);
+            return Ok(mappedVendor);
         }
 
         [HttpPost]

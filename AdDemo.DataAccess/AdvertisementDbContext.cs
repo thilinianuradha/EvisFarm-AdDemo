@@ -13,6 +13,7 @@ namespace AdDemo.DataAccess
         public DbSet<Advertisement> Advertisements { get; set; }
         public DbSet<Crop> Crops { get; set; }
         public DbSet<Vendor> Vendors { get; set; }
+        public DbSet<Buyer> Buyers { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             var connectionString = @"Server = (localdb)\mssqllocaldb;  Database = EvisFarmDb; Trusted_Connection = True";
@@ -182,7 +183,111 @@ namespace AdDemo.DataAccess
             }
         });
 
+            modelBuilder.Entity<Buyer>().HasData(new Buyer[]
+      {new Buyer
+            {
+               Id = 01,
+               UserId = 01,
+               FullName = "Michael",
+               Location ="Anuradhapura",
+               Email ="aaa@gmail.com",
+               JoinedOn =new DateTime(2022, 02, 01),
+               IsActive = true,
+               IsModified = false,
+               LastModifiedOn =new DateTime(),
+               Modify_remarks = "",
+               IsDeleted = false,
+               DeletedOn = new DateTime(),
+               DeletedBy = "",
 
-        }
+               
+            },
+            new Buyer
+            {
+               Id = 02,
+               UserId = 02,
+               FullName = "Felton",
+               Location ="Vavniya",
+               Email ="bbb@gmail.com",
+               JoinedOn =new DateTime(2022, 02, 02),
+               IsActive = true,
+               IsModified = false,
+               LastModifiedOn =new DateTime(),
+               Modify_remarks = "",
+               IsDeleted = false,
+               DeletedOn = new DateTime(),
+               DeletedBy = "",
+               
+            },
+            new Buyer
+            {
+               Id = 03,
+               UserId = 03,
+               FullName = "Harry",
+               Location ="Colombo",
+               Email ="ccc@gmail.com",
+               JoinedOn =new DateTime(2022, 02, 01),
+               IsActive = true,
+               IsModified = false,
+               LastModifiedOn =new DateTime(),
+               Modify_remarks = "",
+               IsDeleted = false,
+               DeletedOn = new DateTime(),
+               DeletedBy = "",
+              
+            },
+            new Buyer
+            {
+               Id = 04,
+               UserId = 04,
+               FullName = "Allen",
+               Location ="Badulla",
+               Email ="ddd@gmail.com",
+               JoinedOn =new DateTime(2022, 02, 05),
+               IsActive = true,
+               IsModified = false,
+               LastModifiedOn =new DateTime(),
+               Modify_remarks = "",
+               IsDeleted = false,
+               DeletedOn = new DateTime(),
+               DeletedBy = "",
+           
+            },
+            new Buyer
+            {
+               Id = 05,
+               UserId = 05,
+               FullName = "Helen",
+               Location ="Chilaw",
+               Email ="eee@gmail.com",
+               JoinedOn =new DateTime(2022, 02, 01),
+               IsActive = true,
+               IsModified = false,
+               LastModifiedOn =new DateTime(),
+               Modify_remarks = "",
+               IsDeleted = false,
+               DeletedOn = new DateTime(),
+               DeletedBy = "",
+               
+            },
+            new Buyer
+            {
+               Id = 06,
+               UserId = 06,
+               FullName = "Ron",
+               Location ="Matara",
+               Email ="fff@gmail.com",
+               JoinedOn =new DateTime(2022, 02, 04),
+               IsActive = true,
+               IsModified = false,
+               LastModifiedOn =new DateTime(),
+               Modify_remarks = "",
+               IsDeleted = false,
+               DeletedOn = new DateTime(),
+               DeletedBy = "",
+            }
+      }) ; 
+
+      }
     }
 }

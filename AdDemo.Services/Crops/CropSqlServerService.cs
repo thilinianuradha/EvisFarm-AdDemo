@@ -22,5 +22,25 @@ namespace AdDemo.Services.Crops
         {
             return _context.Crops.Find(id);
         }
+
+        public Crop AddCrop(Crop crop)
+        {
+            _context.Crops.Add(crop);
+            _context.SaveChanges();
+
+            return _context.Crops.Find(crop.Id);
+
+        }
+        public void UpdateCrop(Crop crop)
+        {
+            _context.SaveChanges();
+
+        }
+        public void DeleteCrop(Crop crop)
+        {
+            _context.Remove(crop);
+            _context.SaveChanges();
+
+        }
     }
 }
