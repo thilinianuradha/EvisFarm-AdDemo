@@ -10,14 +10,12 @@ namespace AdDemo.Models
     public class Crop
     {
         public int Id { get; set; }
-        [Required]
-        [MaxLength(255)]
         public string? CropType { get; set; }
         public string? CropName { get; set; }
         public bool IsAvailable { get; set; }
         public int NoOfAdvertisements { get; set; }
 
-        public List<Advertisement> Advertisements { get; set;}
+        //public List<Advertisement> Advertisements { get; set;}
 
 
 

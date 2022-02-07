@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AdDemo.DataAccess.Migrations
 {
     [DbContext(typeof(AdvertisementDbContext))]
-    [Migration("20220205121050_buyer2")]
-    partial class buyer2
+    [Migration("20220207131247_ccccccccccccccccc")]
+    partial class ccccccccccccccccc
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -33,7 +33,6 @@ namespace AdDemo.DataAccess.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("AcceptedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("AcceptedOn")
@@ -47,9 +46,6 @@ namespace AdDemo.DataAccess.Migrations
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
-
-                    b.Property<int>("CropId")
-                        .HasColumnType("int");
 
                     b.Property<DateTime?>("DeletedOn")
                         .HasColumnType("datetime2");
@@ -73,7 +69,6 @@ namespace AdDemo.DataAccess.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Location")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -88,7 +83,6 @@ namespace AdDemo.DataAccess.Migrations
                             AreaofCultivation = "50Acres",
                             CreatedBy = "Sam",
                             CreatedOn = new DateTime(2022, 1, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CropId = 1,
                             Description = "Maize Cultivation",
                             EstimatedPrice = "Rs. 25,000.00",
                             IsAccepted = false,
@@ -104,7 +98,6 @@ namespace AdDemo.DataAccess.Migrations
                             AreaofCultivation = "20Acres",
                             CreatedBy = "Peter",
                             CreatedOn = new DateTime(2022, 2, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CropId = 2,
                             Description = "Cocoa Cultivation",
                             EstimatedPrice = "Rs. 75,000.00",
                             IsAccepted = false,
@@ -120,7 +113,6 @@ namespace AdDemo.DataAccess.Migrations
                             AreaofCultivation = "100Acres",
                             CreatedBy = "Michael",
                             CreatedOn = new DateTime(2022, 1, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CropId = 1,
                             Description = "Carrot Cultivation",
                             EstimatedPrice = "Rs. 100,000.00",
                             IsAccepted = false,
@@ -136,7 +128,6 @@ namespace AdDemo.DataAccess.Migrations
                             AreaofCultivation = "40Acres",
                             CreatedBy = "Mary",
                             CreatedOn = new DateTime(2022, 1, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CropId = 4,
                             Description = "Cabbage Cultivation",
                             EstimatedPrice = "Rs. 10,000.00",
                             IsAccepted = false,
@@ -156,18 +147,15 @@ namespace AdDemo.DataAccess.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("DeletedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("DeletedOn")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FullName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsActive")
@@ -186,11 +174,9 @@ namespace AdDemo.DataAccess.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Location")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Modify_remarks")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("UserId")
@@ -311,9 +297,7 @@ namespace AdDemo.DataAccess.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CropType")
-                        .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsAvailable")
                         .HasColumnType("bit");
@@ -332,7 +316,7 @@ namespace AdDemo.DataAccess.Migrations
                             CropName = "Carrot",
                             CropType = "Vegetables",
                             IsAvailable = true,
-                            NoOfAdvertisements = 4
+                            NoOfAdvertisements = 1
                         },
                         new
                         {
@@ -348,7 +332,7 @@ namespace AdDemo.DataAccess.Migrations
                             CropName = "Pears",
                             CropType = "Fruits",
                             IsAvailable = true,
-                            NoOfAdvertisements = 10
+                            NoOfAdvertisements = 1
                         });
                 });
 
@@ -360,15 +344,10 @@ namespace AdDemo.DataAccess.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int>("CropId")
-                        .HasColumnType("int");
-
                     b.Property<string>("FullName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Location")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("NoofClosedAds")
@@ -388,7 +367,6 @@ namespace AdDemo.DataAccess.Migrations
                         new
                         {
                             Id = 1,
-                            CropId = 0,
                             FullName = "Thilini Anuradha",
                             Location = "Anuradhapura",
                             NoofClosedAds = 0,
@@ -398,7 +376,6 @@ namespace AdDemo.DataAccess.Migrations
                         new
                         {
                             Id = 2,
-                            CropId = 0,
                             FullName = "Piyumi Thathsarani",
                             Location = "Mathara",
                             NoofClosedAds = 3,
@@ -408,7 +385,6 @@ namespace AdDemo.DataAccess.Migrations
                         new
                         {
                             Id = 3,
-                            CropId = 0,
                             FullName = "Thanuja Mahendran",
                             Location = "Jaffna",
                             NoofClosedAds = 3,
@@ -418,7 +394,6 @@ namespace AdDemo.DataAccess.Migrations
                         new
                         {
                             Id = 4,
-                            CropId = 0,
                             FullName = "Umesha Nirmani",
                             Location = "Awissawella",
                             NoofClosedAds = 0,
@@ -428,7 +403,6 @@ namespace AdDemo.DataAccess.Migrations
                         new
                         {
                             Id = 5,
-                            CropId = 0,
                             FullName = "Nirmani Herath",
                             Location = "Monaragala",
                             NoofClosedAds = 0,
@@ -438,7 +412,6 @@ namespace AdDemo.DataAccess.Migrations
                         new
                         {
                             Id = 6,
-                            CropId = 0,
                             FullName = "Thilini Erandi",
                             Location = "Galle",
                             NoofClosedAds = 3,

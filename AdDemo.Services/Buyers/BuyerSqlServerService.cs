@@ -13,7 +13,7 @@ namespace AdDemo.Services.Buyers
         private readonly AdvertisementDbContext _context = new AdvertisementDbContext();
         public List<Buyer> AllBuyers()
         {
-            return _context.Buyers.Where(m => !m.IsDeleted).ToList();
+            return _context.Buyers.ToList();
         }
         public Buyer GetABuyer(int id)
         {

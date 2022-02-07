@@ -16,8 +16,6 @@ namespace AdDemo.Services.Crops
             return _context.Crops.ToList();
         }
 
-
-
         public Crop GetCrop(int id)
         {
             return _context.Crops.Find(id);

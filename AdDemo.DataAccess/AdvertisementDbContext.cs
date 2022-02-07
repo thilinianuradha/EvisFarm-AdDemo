@@ -24,15 +24,15 @@ namespace AdDemo.DataAccess
             modelBuilder.Entity<Crop>().HasData(new Crop[]
             {new Crop
             {
-                Id = 01,
+               Id = 01,
                CropType = "Vegetables",
                CropName ="Carrot",
                IsAvailable = true,
-               NoOfAdvertisements = 4
+               NoOfAdvertisements = 1
             },
             new Crop
             {
-                Id = 02,
+               Id = 02,
                CropType = "Vegetables",
                CropName ="Beans",
                IsAvailable = true,
@@ -40,19 +40,20 @@ namespace AdDemo.DataAccess
             },
             new Crop
             {
-                Id = 03,
+               Id = 03,
                CropType = "Fruits",
                CropName ="Pears",
                IsAvailable = true,
-               NoOfAdvertisements = 10
+               NoOfAdvertisements = 1
+             
             }
+       
             });
 
             modelBuilder.Entity<Advertisement>().HasData(new Advertisement[]
             {new Advertisement
             {
                 Id = 01,
-                CropId = 1,
                 Location = "Anuradhapura",
                 Description = "Maize Cultivation",
                 EstimatedPrice = "Rs. 25,000.00",
@@ -65,13 +66,13 @@ namespace AdDemo.DataAccess
                 AcceptedOn = null,
                 AcceptedBy = "",
                 IsDeleted = false,
-                DeletedOn = null
+                DeletedOn = null,
+                
 
             },
             new Advertisement
             {
                 Id = 02,
-                CropId = 2,
                 Location = "Colombo",
                 Description = "Cocoa Cultivation",
                 EstimatedPrice = "Rs. 75,000.00",
@@ -90,7 +91,6 @@ namespace AdDemo.DataAccess
             new Advertisement
             {
                 Id = 03,
-                CropId = 1,
                 Location = "Kandy",
                 Description = "Carrot Cultivation",
                 EstimatedPrice = "Rs. 100,000.00",
@@ -109,7 +109,6 @@ namespace AdDemo.DataAccess
              new Advertisement
             {
                 Id = 04,
-                CropId = 4,
                 Location = "Badulla",
                 Description = "Cabbage Cultivation",
                 EstimatedPrice = "Rs. 10,000.00",

@@ -9,16 +9,16 @@ namespace AdDemo.Models
     public class Vendor
     {
         public int Id { get; set; }
-        public string FullName { get; set; }
-        public string Location { get; set; }
+        public string? FullName { get; set; }
+        public string? Location { get; set; }
         public int NoofPendingRequests { get; set; }
         public int NoofInprogressAds { get; set; }
         public int NoofClosedAds { get; set; }
 
        
 
-        public List<Advertisement> Advertisements { get; set; }
+      //  public List<Advertisement> Advertisements { get; set; }
 
-
+      
     }
 }
