@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AdDemo.Models
 {
-    public class AcceptedRequests
+    public class AcceptedRequest
     {
         public int Id { get; set; }
         public int AnnouncementId { get; set; }
