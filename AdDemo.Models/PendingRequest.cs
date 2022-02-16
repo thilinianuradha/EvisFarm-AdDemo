@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AdDemo.Models
 {
-    public class Pending_request
+    public class PendingRequest
     {
         public int Id { get; set; }
         public int AdvertisementId { get; set; }

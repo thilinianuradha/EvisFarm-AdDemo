@@ -14,7 +14,7 @@ namespace AdDemo.DataAccess
         public DbSet<Crop> Crops { get; set; }
         public DbSet<Vendor> Vendors { get; set; }
         public DbSet<Buyer> Buyers { get; set; }
-        public DbSet<Pending_request> PendingRequests { get; set; }
+        public DbSet<PendingRequest> PendingRequests { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             var connectionString = @"Server = (localdb)\mssqllocaldb;  Database = EvisFarmDb; Trusted_Connection = True";
@@ -298,12 +298,12 @@ namespace AdDemo.DataAccess
             }
       }) ; 
 
-            modelBuilder.Entity<Pending_request>()
+            modelBuilder.Entity<PendingRequest>()
                 .HasOne(b => b.Advertisement)
                 .WithMany(ba => ba.Pending_Requests) 
                 .HasForeignKey(bi => bi.AdvertisementId);
 
-            modelBuilder.Entity<Pending_request>()
+            modelBuilder.Entity<PendingRequest>()
                 .HasOne(b => b.Vendor)
                 .WithMany(ba => ba.Pending_Requests)
                 .HasForeignKey(bi => bi.PostedBy);
