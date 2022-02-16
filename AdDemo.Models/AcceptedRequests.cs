@@ -9,6 +9,7 @@ namespace AdDemo.Models
     public class AcceptedRequests
     {
         public int Id { get; set; }
+        public int AnnouncementId { get; set; }
         public string Postedby { get; set; }
         public DateTime PostedOn { get; set; }
         public bool IsAvailable { get; set; }

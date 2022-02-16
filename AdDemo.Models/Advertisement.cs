@@ -26,8 +26,7 @@ namespace AdDemo.Models
         //public int CropId { get; set; }
         //public Crop Crop { get; set; }
 
-        // public int VendorID { get; set; }
-        // public Vendor Vendor { get; set; }
 
+        public List<Pending_request> Pending_Requests { get; set; }
     }
 }

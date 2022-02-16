@@ -15,10 +15,8 @@ namespace AdDemo.Models
         public int NoofInprogressAds { get; set; }
         public int NoofClosedAds { get; set; }
 
-       
 
-      //  public List<Advertisement> Advertisements { get; set; }
 
-      
+        public List<Pending_request> Pending_Requests { get; set; }
     }
 }

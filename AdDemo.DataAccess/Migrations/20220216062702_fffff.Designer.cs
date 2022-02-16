@@ -4,6 +4,7 @@ using AdDemo.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AdDemo.DataAccess.Migrations
 {
     [DbContext(typeof(AdvertisementDbContext))]
-    partial class AdvertisementDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220216062702_fffff")]
+    partial class fffff
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -71,7 +73,7 @@ namespace AdDemo.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Advertisements", (string)null);
+                    b.ToTable("Advertisements");
 
                     b.HasData(
                         new
@@ -182,7 +184,7 @@ namespace AdDemo.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Buyers", (string)null);
+                    b.ToTable("Buyers");
 
                     b.HasData(
                         new
@@ -305,7 +307,7 @@ namespace AdDemo.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Crops", (string)null);
+                    b.ToTable("Crops");
 
                     b.HasData(
                         new
@@ -331,14 +333,6 @@ namespace AdDemo.DataAccess.Migrations
                             CropType = "Fruits",
                             IsAvailable = true,
                             NoOfAdvertisements = 1
-                        },
-                        new
-                        {
-                            Id = 4,
-                            CropName = "Banana",
-                            CropType = "Fruits",
-                            IsAvailable = true,
-                            NoOfAdvertisements = 5
                         });
                 });
 
@@ -374,7 +368,7 @@ namespace AdDemo.DataAccess.Migrations
 
                     b.HasIndex("PostedBy");
 
-                    b.ToTable("PendingRequests", (string)null);
+                    b.ToTable("PendingRequests");
                 });
 
             modelBuilder.Entity("AdDemo.Models.Vendor", b =>
@@ -402,7 +396,7 @@ namespace AdDemo.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Vendors", (string)null);
+                    b.ToTable("Vendors");
 
                     b.HasData(
                         new
