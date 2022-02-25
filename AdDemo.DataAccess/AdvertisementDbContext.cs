@@ -16,7 +16,7 @@ namespace AdDemo.DataAccess
         public DbSet<Buyer> Buyers { get; set; }
         public DbSet<Pending_Request> PendingRequests { get; set; }
         public DbSet<AcceptedRequest> AcceptedRequests { get; set; }
-        public DbSet<Pending_Request> pendingRequests { get; set; }
+     
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             var connectionString = @"Server = (localdb)\mssqllocaldb;  Database = EvisFarmDb; Trusted_Connection = True";
@@ -310,6 +310,8 @@ namespace AdDemo.DataAccess
                 .HasOne(b => b.Vendor)
                 .WithMany(ba => ba.Pending_Requests)
                 .HasForeignKey(bi => bi.Posted_By);
-        }
+
+         
+      }
     }
 }

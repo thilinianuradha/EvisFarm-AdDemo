@@ -12,19 +12,16 @@ namespace AdDemo.Services.PendingRequests
     {
         private readonly AdvertisementDbContext _context = new AdvertisementDbContext();
 
-        public object AllPendingRequests()
-        {
-           return _context.pendingRequests.ToList();
-        }
+       
 
         public Pending_Request GetAPendingRequest(int id)
         {
-            return _context.pendingRequests.Find(id);
+            return _context.PendingRequests.Find(id);
         }
 
-        public List<Pending_Request> PendingRequests()
+        public List<Pending_Request> AllPendingRequests()
         {
-            throw new NotImplementedException();
+            return _context.PendingRequests.ToList();
         }
     }
 }

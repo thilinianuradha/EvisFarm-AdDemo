@@ -9,8 +9,8 @@ namespace AdDemo.Services.PendingRequests
 {
     public interface IPendingRequestRepository
     {
-        public List<Pending_Request> PendingRequests();
+        public List<Pending_Request> AllPendingRequests();
         public Pending_Request GetAPendingRequest(int id);
-        object AllPendingRequests();
+    
     }
 }
