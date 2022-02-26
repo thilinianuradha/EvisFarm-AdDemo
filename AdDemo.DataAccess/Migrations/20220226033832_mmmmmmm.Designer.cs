@@ -4,6 +4,7 @@ using AdDemo.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AdDemo.DataAccess.Migrations
 {
     [DbContext(typeof(AdvertisementDbContext))]
-    partial class AdvertisementDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220226033832_mmmmmmm")]
+    partial class mmmmmmm
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -210,7 +212,7 @@ namespace AdDemo.DataAccess.Migrations
                     b.Property<string>("Modify_remarks")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("User_Id")
+                    b.Property<int>("UserId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -232,7 +234,7 @@ namespace AdDemo.DataAccess.Migrations
                             LastModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Location = "Anuradhapura",
                             Modify_remarks = "",
-                            User_Id = 1
+                            UserId = 1
                         },
                         new
                         {
@@ -248,7 +250,7 @@ namespace AdDemo.DataAccess.Migrations
                             LastModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Location = "Vavniya",
                             Modify_remarks = "",
-                            User_Id = 2
+                            UserId = 2
                         },
                         new
                         {
@@ -264,7 +266,7 @@ namespace AdDemo.DataAccess.Migrations
                             LastModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Location = "Colombo",
                             Modify_remarks = "",
-                            User_Id = 3
+                            UserId = 3
                         },
                         new
                         {
@@ -280,7 +282,7 @@ namespace AdDemo.DataAccess.Migrations
                             LastModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Location = "Badulla",
                             Modify_remarks = "",
-                            User_Id = 4
+                            UserId = 4
                         },
                         new
                         {
@@ -296,7 +298,7 @@ namespace AdDemo.DataAccess.Migrations
                             LastModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Location = "Chilaw",
                             Modify_remarks = "",
-                            User_Id = 5
+                            UserId = 5
                         },
                         new
                         {
@@ -312,7 +314,7 @@ namespace AdDemo.DataAccess.Migrations
                             LastModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Location = "Matara",
                             Modify_remarks = "",
-                            User_Id = 6
+                            UserId = 6
                         });
                 });
 
@@ -450,22 +452,22 @@ namespace AdDemo.DataAccess.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2022, 2, 26, 11, 49, 13, 409, DateTimeKind.Local).AddTicks(6931),
-                            DeletedOn = new DateTime(2022, 2, 26, 11, 49, 13, 409, DateTimeKind.Local).AddTicks(6943),
+                            CreatedDate = new DateTime(2022, 2, 26, 9, 8, 31, 511, DateTimeKind.Local).AddTicks(6781),
+                            DeletedOn = new DateTime(2022, 2, 26, 9, 8, 31, 511, DateTimeKind.Local).AddTicks(6802),
                             District = "Vavniya",
                             IsDeleted = false,
-                            LastUpdatedOn = new DateTime(2022, 2, 26, 11, 49, 13, 409, DateTimeKind.Local).AddTicks(6942),
+                            LastUpdatedOn = new DateTime(2022, 2, 26, 9, 8, 31, 511, DateTimeKind.Local).AddTicks(6800),
                             Name = "Samadhi",
                             UserType = "Farmer"
                         },
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2022, 2, 26, 11, 49, 13, 409, DateTimeKind.Local).AddTicks(6946),
-                            DeletedOn = new DateTime(2022, 2, 26, 11, 49, 13, 409, DateTimeKind.Local).AddTicks(6948),
+                            CreatedDate = new DateTime(2022, 2, 26, 9, 8, 31, 511, DateTimeKind.Local).AddTicks(6804),
+                            DeletedOn = new DateTime(2022, 2, 26, 9, 8, 31, 511, DateTimeKind.Local).AddTicks(6807),
                             District = "Vavniya",
                             IsDeleted = false,
-                            LastUpdatedOn = new DateTime(2022, 2, 26, 11, 49, 13, 409, DateTimeKind.Local).AddTicks(6947),
+                            LastUpdatedOn = new DateTime(2022, 2, 26, 9, 8, 31, 511, DateTimeKind.Local).AddTicks(6806),
                             Name = "Samadhi",
                             UserType = "Farmer"
                         });

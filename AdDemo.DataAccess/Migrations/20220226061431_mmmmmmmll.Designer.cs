@@ -4,6 +4,7 @@ using AdDemo.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AdDemo.DataAccess.Migrations
 {
     [DbContext(typeof(AdvertisementDbContext))]
-    partial class AdvertisementDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220226061431_mmmmmmmll")]
+    partial class mmmmmmmll
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -450,22 +452,22 @@ namespace AdDemo.DataAccess.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2022, 2, 26, 11, 49, 13, 409, DateTimeKind.Local).AddTicks(6931),
-                            DeletedOn = new DateTime(2022, 2, 26, 11, 49, 13, 409, DateTimeKind.Local).AddTicks(6943),
+                            CreatedDate = new DateTime(2022, 2, 26, 11, 44, 31, 353, DateTimeKind.Local).AddTicks(3737),
+                            DeletedOn = new DateTime(2022, 2, 26, 11, 44, 31, 353, DateTimeKind.Local).AddTicks(3753),
                             District = "Vavniya",
                             IsDeleted = false,
-                            LastUpdatedOn = new DateTime(2022, 2, 26, 11, 49, 13, 409, DateTimeKind.Local).AddTicks(6942),
+                            LastUpdatedOn = new DateTime(2022, 2, 26, 11, 44, 31, 353, DateTimeKind.Local).AddTicks(3752),
                             Name = "Samadhi",
                             UserType = "Farmer"
                         },
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2022, 2, 26, 11, 49, 13, 409, DateTimeKind.Local).AddTicks(6946),
-                            DeletedOn = new DateTime(2022, 2, 26, 11, 49, 13, 409, DateTimeKind.Local).AddTicks(6948),
+                            CreatedDate = new DateTime(2022, 2, 26, 11, 44, 31, 353, DateTimeKind.Local).AddTicks(3755),
+                            DeletedOn = new DateTime(2022, 2, 26, 11, 44, 31, 353, DateTimeKind.Local).AddTicks(3757),
                             District = "Vavniya",
                             IsDeleted = false,
-                            LastUpdatedOn = new DateTime(2022, 2, 26, 11, 49, 13, 409, DateTimeKind.Local).AddTicks(6947),
+                            LastUpdatedOn = new DateTime(2022, 2, 26, 11, 44, 31, 353, DateTimeKind.Local).AddTicks(3756),
                             Name = "Samadhi",
                             UserType = "Farmer"
                         });

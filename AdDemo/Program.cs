@@ -4,6 +4,7 @@ using AdDemo.Services.Crops;
 using AdDemo.Services.Vendors;
 using AdDemo.Services.AcceptedRequests;
 using AdDemo.Services.PendingRequests;
+using AdDemo.Services.Users;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,6 +21,7 @@ builder.Services.AddScoped<IVendorRepository, VendorSqlServerService>();
 builder.Services.AddScoped<IBuyerRepository, BuyerSqlServerService>();
 builder.Services.AddScoped<IAcceptedRequestRepository, AcceptedRequestSqlServerService>();
 builder.Services.AddScoped<IPendingRequestRepository, PendingRequestSqlServerService>();
+builder.Services.AddScoped<IUserRepository, UserSqlServerService>();
 
 var app = builder.Build();
 

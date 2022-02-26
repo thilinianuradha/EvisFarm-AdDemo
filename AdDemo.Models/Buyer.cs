@@ -9,7 +9,7 @@ namespace AdDemo.Models
     public class Buyer
     {
         public int Id { get; set; }
-        public int UserId { get; set; }
+        public int User_Id { get; set; }
         public string? FullName { get; set; }
         public string? Location { get; set; }
         public string? Email { get; set; }

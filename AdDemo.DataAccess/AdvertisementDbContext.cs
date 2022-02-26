@@ -16,6 +16,7 @@ namespace AdDemo.DataAccess
         public DbSet<Buyer> Buyers { get; set; }
         public DbSet<Pending_Request> PendingRequests { get; set; }
         public DbSet<AcceptedRequest> AcceptedRequests { get; set; }
+        public DbSet<User> Users { get; set; }
      
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -24,6 +25,31 @@ namespace AdDemo.DataAccess
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<User>().HasData(new User[]
+              {new User
+              {
+                  Id = 1,
+                  Name ="Samadhi",
+                  UserType = "Farmer",
+                  District = "Vavniya",
+                  CreatedDate = DateTime.Now,
+                  LastUpdatedOn = DateTime.Now,
+                  IsDeleted = false,
+                  DeletedOn = DateTime.Now,
+              },
+              new User
+              {
+                  Id = 2,
+                  Name ="Samadhi",
+                  UserType = "Farmer",
+                  District = "Vavniya",
+                  CreatedDate = DateTime.Now,
+                  LastUpdatedOn = DateTime.Now,
+                  IsDeleted = false,
+                  DeletedOn = DateTime.Now,
+              }
+              }
+                );
          
             modelBuilder.Entity<Crop>().HasData(new Crop[]
             {new Crop
@@ -200,7 +226,7 @@ namespace AdDemo.DataAccess
       {new Buyer
             {
                Id = 01,
-               UserId = 01,
+               User_Id = 01,
                FullName = "Michael",
                Location ="Anuradhapura",
                Email ="aaa@gmail.com",
@@ -218,7 +244,7 @@ namespace AdDemo.DataAccess
             new Buyer
             {
                Id = 02,
-               UserId = 02,
+               User_Id = 02,
                FullName = "Felton",
                Location ="Vavniya",
                Email ="bbb@gmail.com",
@@ -235,7 +261,7 @@ namespace AdDemo.DataAccess
             new Buyer
             {
                Id = 03,
-               UserId = 03,
+               User_Id = 03,
                FullName = "Harry",
                Location ="Colombo",
                Email ="ccc@gmail.com",
@@ -252,7 +278,7 @@ namespace AdDemo.DataAccess
             new Buyer
             {
                Id = 04,
-               UserId = 04,
+               User_Id = 04,
                FullName = "Allen",
                Location ="Badulla",
                Email ="ddd@gmail.com",
@@ -269,7 +295,7 @@ namespace AdDemo.DataAccess
             new Buyer
             {
                Id = 05,
-               UserId = 05,
+               User_Id = 05,
                FullName = "Helen",
                Location ="Chilaw",
                Email ="eee@gmail.com",
@@ -286,7 +312,7 @@ namespace AdDemo.DataAccess
             new Buyer
             {
                Id = 06,
-               UserId = 06,
+               User_Id = 06,
                FullName = "Ron",
                Location ="Matara",
                Email ="fff@gmail.com",
@@ -299,11 +325,12 @@ namespace AdDemo.DataAccess
                DeletedOn = new DateTime(),
                DeletedBy = "",
             }
-      }) ; 
+      }) ;
+
 
             modelBuilder.Entity<Pending_Request>()
                 .HasOne(b => b.Advertisement)
-                .WithMany(ba => ba.Pending_Requests) 
+                .WithMany(ba => ba.Pending_Requests)
                 .HasForeignKey(bi => bi.AdvertisementId);
 
             modelBuilder.Entity<Pending_Request>()
