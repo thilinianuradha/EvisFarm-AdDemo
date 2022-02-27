@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AdDemo.DataAccess.Migrations
 {
     [DbContext(typeof(AdvertisementDbContext))]
-    [Migration("20220216060415_fff")]
-    partial class fff
+    [Migration("20220227172957_hii")]
+    partial class hii
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -23,6 +23,39 @@ namespace AdDemo.DataAccess.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
+
+            modelBuilder.Entity("AdDemo.Models.AcceptedRequest", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("AcceptedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("AcceptedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("AnnouncementId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsAvailable")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("PostedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Postedby")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("AcceptedRequests");
+                });
 
             modelBuilder.Entity("AdDemo.Models.Advertisement", b =>
                 {
@@ -179,7 +212,7 @@ namespace AdDemo.DataAccess.Migrations
                     b.Property<string>("Modify_remarks")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("UserId")
+                    b.Property<int>("User_Id")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -201,7 +234,7 @@ namespace AdDemo.DataAccess.Migrations
                             LastModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Location = "Anuradhapura",
                             Modify_remarks = "",
-                            UserId = 1
+                            User_Id = 1
                         },
                         new
                         {
@@ -217,7 +250,7 @@ namespace AdDemo.DataAccess.Migrations
                             LastModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Location = "Vavniya",
                             Modify_remarks = "",
-                            UserId = 2
+                            User_Id = 2
                         },
                         new
                         {
@@ -233,7 +266,7 @@ namespace AdDemo.DataAccess.Migrations
                             LastModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Location = "Colombo",
                             Modify_remarks = "",
-                            UserId = 3
+                            User_Id = 3
                         },
                         new
                         {
@@ -249,7 +282,7 @@ namespace AdDemo.DataAccess.Migrations
                             LastModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Location = "Badulla",
                             Modify_remarks = "",
-                            UserId = 4
+                            User_Id = 4
                         },
                         new
                         {
@@ -265,7 +298,7 @@ namespace AdDemo.DataAccess.Migrations
                             LastModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Location = "Chilaw",
                             Modify_remarks = "",
-                            UserId = 5
+                            User_Id = 5
                         },
                         new
                         {
@@ -281,7 +314,7 @@ namespace AdDemo.DataAccess.Migrations
                             LastModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Location = "Matara",
                             Modify_remarks = "",
-                            UserId = 6
+                            User_Id = 6
                         });
                 });
 
@@ -333,10 +366,18 @@ namespace AdDemo.DataAccess.Migrations
                             CropType = "Fruits",
                             IsAvailable = true,
                             NoOfAdvertisements = 1
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CropName = "Banana",
+                            CropType = "Fruits",
+                            IsAvailable = true,
+                            NoOfAdvertisements = 5
                         });
                 });
 
-            modelBuilder.Entity("AdDemo.Models.Pending_request", b =>
+            modelBuilder.Entity("AdDemo.Models.Pending_Request", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -350,32 +391,153 @@ namespace AdDemo.DataAccess.Migrations
                     b.Property<int>("AdvertisementId")
                         .HasColumnType("int");
 
-                    b.Property<int>("AnnouncementId")
-                        .HasColumnType("int");
-
                     b.Property<bool>("IsAccepted")
                         .HasColumnType("bit");
 
                     b.Property<int>("No_of_requests")
                         .HasColumnType("int");
 
-                    b.Property<string>("PostedBy")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<DateTime>("PostedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("VendorId")
+                    b.Property<int>("Posted_By")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("AdvertisementId");
 
-                    b.HasIndex("VendorId");
+                    b.HasIndex("Posted_By");
 
-                    b.ToTable("Pending_request");
+                    b.ToTable("PendingRequests");
+                });
+
+            modelBuilder.Entity("AdDemo.Models.User", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DeletedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("DeletedRemarks")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsAvailable")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("LastUpdatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(1)");
+
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Users");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreatedBy = "M.N. nisha",
+                            CreatedOn = new DateTime(2022, 2, 27, 22, 59, 57, 142, DateTimeKind.Local).AddTicks(9459),
+                            DeletedOn = new DateTime(2022, 2, 27, 22, 59, 57, 142, DateTimeKind.Local).AddTicks(9470),
+                            DeletedRemarks = "#####",
+                            IsAvailable = true,
+                            LastUpdatedOn = new DateTime(2022, 2, 27, 22, 59, 57, 142, DateTimeKind.Local).AddTicks(9469),
+                            Password = "n",
+                            UserName = "nisha"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CreatedBy = "M.N. Zanda",
+                            CreatedOn = new DateTime(2022, 2, 27, 22, 59, 57, 142, DateTimeKind.Local).AddTicks(9471),
+                            DeletedOn = new DateTime(2022, 2, 27, 22, 59, 57, 142, DateTimeKind.Local).AddTicks(9472),
+                            DeletedRemarks = "######",
+                            IsAvailable = true,
+                            LastUpdatedOn = new DateTime(2022, 2, 27, 22, 59, 57, 142, DateTimeKind.Local).AddTicks(9472),
+                            Password = "m",
+                            UserName = "Zanda"
+                        });
+                });
+
+            modelBuilder.Entity("AdDemo.Models.UserProfile", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DeletedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("District")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("LastUpdatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("UserProfiles");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreatedDate = new DateTime(2022, 2, 27, 22, 59, 57, 142, DateTimeKind.Local).AddTicks(9582),
+                            DeletedOn = new DateTime(2022, 2, 27, 22, 59, 57, 142, DateTimeKind.Local).AddTicks(9584),
+                            District = "Vavniya",
+                            IsDeleted = false,
+                            LastUpdatedOn = new DateTime(2022, 2, 27, 22, 59, 57, 142, DateTimeKind.Local).AddTicks(9583),
+                            Name = "Samadhi",
+                            UserType = "Farmer"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CreatedDate = new DateTime(2022, 2, 27, 22, 59, 57, 142, DateTimeKind.Local).AddTicks(9585),
+                            DeletedOn = new DateTime(2022, 2, 27, 22, 59, 57, 142, DateTimeKind.Local).AddTicks(9586),
+                            District = "Vavniya",
+                            IsDeleted = false,
+                            LastUpdatedOn = new DateTime(2022, 2, 27, 22, 59, 57, 142, DateTimeKind.Local).AddTicks(9586),
+                            Name = "Samadhi",
+                            UserType = "Farmer"
+                        });
                 });
 
             modelBuilder.Entity("AdDemo.Models.Vendor", b =>
@@ -462,7 +624,7 @@ namespace AdDemo.DataAccess.Migrations
                         });
                 });
 
-            modelBuilder.Entity("AdDemo.Models.Pending_request", b =>
+            modelBuilder.Entity("AdDemo.Models.Pending_Request", b =>
                 {
                     b.HasOne("AdDemo.Models.Advertisement", "Advertisement")
                         .WithMany("Pending_Requests")
@@ -472,7 +634,7 @@ namespace AdDemo.DataAccess.Migrations
 
                     b.HasOne("AdDemo.Models.Vendor", "Vendor")
                         .WithMany("Pending_Requests")
-                        .HasForeignKey("VendorId")
+                        .HasForeignKey("Posted_By")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

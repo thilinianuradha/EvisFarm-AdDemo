@@ -418,6 +418,73 @@ namespace AdDemo.DataAccess.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DeletedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("DeletedRemarks")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsAvailable")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("LastUpdatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(1)");
+
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Users");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreatedBy = "M.N. nisha",
+                            CreatedOn = new DateTime(2022, 2, 27, 23, 2, 4, 22, DateTimeKind.Local).AddTicks(7928),
+                            DeletedOn = new DateTime(2022, 2, 27, 23, 2, 4, 22, DateTimeKind.Local).AddTicks(7941),
+                            DeletedRemarks = "#####",
+                            IsAvailable = true,
+                            LastUpdatedOn = new DateTime(2022, 2, 27, 23, 2, 4, 22, DateTimeKind.Local).AddTicks(7940),
+                            Password = "n",
+                            UserName = "nisha"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CreatedBy = "M.N. Zanda",
+                            CreatedOn = new DateTime(2022, 2, 27, 23, 2, 4, 22, DateTimeKind.Local).AddTicks(7942),
+                            DeletedOn = new DateTime(2022, 2, 27, 23, 2, 4, 22, DateTimeKind.Local).AddTicks(7943),
+                            DeletedRemarks = "######",
+                            IsAvailable = true,
+                            LastUpdatedOn = new DateTime(2022, 2, 27, 23, 2, 4, 22, DateTimeKind.Local).AddTicks(7943),
+                            Password = "m",
+                            UserName = "Zanda"
+                        });
+                });
+
+            modelBuilder.Entity("AdDemo.Models.UserProfile", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
@@ -444,28 +511,28 @@ namespace AdDemo.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users");
+                    b.ToTable("UserProfiles");
 
                     b.HasData(
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2022, 2, 26, 11, 49, 13, 409, DateTimeKind.Local).AddTicks(6931),
-                            DeletedOn = new DateTime(2022, 2, 26, 11, 49, 13, 409, DateTimeKind.Local).AddTicks(6943),
+                            CreatedDate = new DateTime(2022, 2, 27, 23, 2, 4, 22, DateTimeKind.Local).AddTicks(8100),
+                            DeletedOn = new DateTime(2022, 2, 27, 23, 2, 4, 22, DateTimeKind.Local).AddTicks(8102),
                             District = "Vavniya",
                             IsDeleted = false,
-                            LastUpdatedOn = new DateTime(2022, 2, 26, 11, 49, 13, 409, DateTimeKind.Local).AddTicks(6942),
+                            LastUpdatedOn = new DateTime(2022, 2, 27, 23, 2, 4, 22, DateTimeKind.Local).AddTicks(8101),
                             Name = "Samadhi",
                             UserType = "Farmer"
                         },
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2022, 2, 26, 11, 49, 13, 409, DateTimeKind.Local).AddTicks(6946),
-                            DeletedOn = new DateTime(2022, 2, 26, 11, 49, 13, 409, DateTimeKind.Local).AddTicks(6948),
+                            CreatedDate = new DateTime(2022, 2, 27, 23, 2, 4, 22, DateTimeKind.Local).AddTicks(8104),
+                            DeletedOn = new DateTime(2022, 2, 27, 23, 2, 4, 22, DateTimeKind.Local).AddTicks(8105),
                             District = "Vavniya",
                             IsDeleted = false,
-                            LastUpdatedOn = new DateTime(2022, 2, 26, 11, 49, 13, 409, DateTimeKind.Local).AddTicks(6947),
+                            LastUpdatedOn = new DateTime(2022, 2, 27, 23, 2, 4, 22, DateTimeKind.Local).AddTicks(8104),
                             Name = "Samadhi",
                             UserType = "Farmer"
                         });

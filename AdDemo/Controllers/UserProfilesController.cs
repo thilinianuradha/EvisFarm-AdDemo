@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AdDemo.Controllers
 {
-    [Route("api/[[Users]]")]
+    [Route("api/[[UserProfiles]]")]
     [ApiController]
     public class UserProfilesController : ControllerBase
     {
@@ -23,7 +23,7 @@ namespace AdDemo.Controllers
         }
 
         [HttpGet]
-        public ActionResult<ICollection<UserProfileDto>> GetUsers()
+        public ActionResult<ICollection<UserProfileDto>> GetUserProfiles()
         {
             var userprofiles = _service.AllUserProfiles();
             return Ok(userprofiles);

@@ -4,13 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdDemo.Models
+namespace AdDemo.Services.Users.ViewModels
 {
-    public class Bid
+    public class UpdateUserDto
     {
         public int Id { get; set; }
-        public string UserName { get; set; }
+        public string Username { get; set; }
         public char Password { get; set; }
-
     }
 }

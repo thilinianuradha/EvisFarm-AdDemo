@@ -17,6 +17,7 @@ namespace AdDemo.DataAccess
         public DbSet<Pending_Request> PendingRequests { get; set; }
         public DbSet<AcceptedRequest> AcceptedRequests { get; set; }
         public DbSet<UserProfile> UserProfiles { get; set; }
+        public DbSet<User> Users { get; set; }
      
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -25,6 +26,34 @@ namespace AdDemo.DataAccess
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<User>().HasData(new User[]
+            {
+                new User
+                {
+                    Id = 1,
+                    UserName = "nisha",
+                    Password = 'n',
+                    CreatedOn = DateTime.Now,
+                    CreatedBy = "M.N. nisha",
+                    LastUpdatedOn = DateTime.Now,
+                    IsAvailable = true,
+                    DeletedOn = DateTime.Now,
+                    DeletedRemarks = "#####",
+                },
+                  new User
+                {
+                    Id = 2,
+                    UserName = "Zanda",
+                    Password = 'm',
+                    CreatedOn = DateTime.Now,
+                    CreatedBy = "M.N. Zanda",
+                    LastUpdatedOn = DateTime.Now,
+                    IsAvailable = true,
+                    DeletedOn = DateTime.Now,
+                    DeletedRemarks = "######",
+                },
+            });
+
             modelBuilder.Entity<UserProfile>().HasData(new UserProfile[]
               {new UserProfile
               {
