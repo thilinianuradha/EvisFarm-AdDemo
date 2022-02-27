@@ -9,6 +9,8 @@ namespace AdDemo.Models
     public class Bid
     {
         public int Id { get; set; }
+        public string UserName { get; set; }
+        public char Password { get; set; }
 
     }
 }

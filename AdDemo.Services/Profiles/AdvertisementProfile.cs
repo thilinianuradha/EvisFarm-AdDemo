@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace AdDemo.Services.Profiles
 {
-   public class AdvertisementProfile : Profile
+   public class AdvertisementProfile : AutoMapper.Profile
     {
         public AdvertisementProfile()
         {

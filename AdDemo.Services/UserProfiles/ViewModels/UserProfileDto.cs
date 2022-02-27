@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdDemo.Services.Users.ViewModels
+namespace AdDemo.Services.UserProfiles.ViewModels
 {
-    public class UserDto
+    public class UserProfileDto
     {
     public int Id { get; set; }
         public string Name { get; set; }

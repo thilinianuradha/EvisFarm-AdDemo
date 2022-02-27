@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace AdDemo.Services.Profiles
 {
-    public class BuyerProfile : Profile
+    public class BuyerProfile : AutoMapper.Profile
     {
         public BuyerProfile()
         {

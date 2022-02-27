@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace AdDemo.Services.Profiles
 {
-    public class CropProfile : Profile
+    public class CropProfile : AutoMapper.Profile
     {
         public CropProfile()
         {

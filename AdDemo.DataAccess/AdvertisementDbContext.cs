@@ -16,7 +16,7 @@ namespace AdDemo.DataAccess
         public DbSet<Buyer> Buyers { get; set; }
         public DbSet<Pending_Request> PendingRequests { get; set; }
         public DbSet<AcceptedRequest> AcceptedRequests { get; set; }
-        public DbSet<User> Users { get; set; }
+        public DbSet<UserProfile> UserProfiles { get; set; }
      
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -25,8 +25,8 @@ namespace AdDemo.DataAccess
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<User>().HasData(new User[]
-              {new User
+            modelBuilder.Entity<UserProfile>().HasData(new UserProfile[]
+              {new UserProfile
               {
                   Id = 1,
                   Name ="Samadhi",
@@ -37,7 +37,7 @@ namespace AdDemo.DataAccess
                   IsDeleted = false,
                   DeletedOn = DateTime.Now,
               },
-              new User
+              new UserProfile
               {
                   Id = 2,
                   Name ="Samadhi",
