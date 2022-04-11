@@ -17,6 +17,6 @@ namespace AdDemo.Models
 
 
 
-        public List<Pending_Request> Pending_Requests { get; set; }
+        public ICollection<Pending_Request> Pending_Requests { get; set; }
     }
 }

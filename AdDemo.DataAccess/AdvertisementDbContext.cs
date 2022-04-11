@@ -124,7 +124,7 @@ namespace AdDemo.DataAccess
             {
                 Id = 01,
                 Location = "Anuradhapura",
-                Description = "Maize Cultivation",
+                StartingDate = new DateTime(2022/02/02),
                 EstimatedPrice = "Rs. 25,000.00",
                 AreaofCultivation = "50Acres",
                 CreatedBy = "Sam",
@@ -143,7 +143,7 @@ namespace AdDemo.DataAccess
             {
                 Id = 02,
                 Location = "Colombo",
-                Description = "Cocoa Cultivation",
+                 StartingDate = new DateTime(2022/02/02),
                 EstimatedPrice = "Rs. 75,000.00",
                 AreaofCultivation = "20Acres",
                 CreatedBy = "Peter",
@@ -161,7 +161,7 @@ namespace AdDemo.DataAccess
             {
                 Id = 03,
                 Location = "Kandy",
-                Description = "Carrot Cultivation",
+                 StartingDate = new DateTime(2022/02/02),
                 EstimatedPrice = "Rs. 100,000.00",
                 AreaofCultivation = "100Acres",
                 CreatedBy = "Michael",
@@ -179,7 +179,7 @@ namespace AdDemo.DataAccess
             {
                 Id = 04,
                 Location = "Badulla",
-                Description = "Cabbage Cultivation",
+                 StartingDate = new DateTime(2022/02/02),
                 EstimatedPrice = "Rs. 10,000.00",
                 AreaofCultivation = "40Acres",
                 CreatedBy = "Mary",
@@ -365,7 +365,7 @@ namespace AdDemo.DataAccess
             modelBuilder.Entity<Pending_Request>()
                 .HasOne(b => b.Vendor)
                 .WithMany(ba => ba.Pending_Requests)
-                .HasForeignKey(bi => bi.Posted_By);
+                .HasForeignKey(bi => bi.VendorId);
 
          
       }

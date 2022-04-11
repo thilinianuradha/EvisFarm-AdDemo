@@ -4,6 +4,7 @@ using AdDemo.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AdDemo.DataAccess.Migrations
 {
     [DbContext(typeof(AdvertisementDbContext))]
-    partial class AdvertisementDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220323112558_bbbb")]
+    partial class bbbb
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -81,6 +83,9 @@ namespace AdDemo.DataAccess.Migrations
                     b.Property<DateTime?>("DeletedOn")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("EstimatedPrice")
                         .HasColumnType("nvarchar(max)");
 
@@ -99,9 +104,6 @@ namespace AdDemo.DataAccess.Migrations
                     b.Property<string>("Location")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("StartingDate")
-                        .HasColumnType("datetime2");
-
                     b.HasKey("Id");
 
                     b.ToTable("Advertisements");
@@ -114,13 +116,13 @@ namespace AdDemo.DataAccess.Migrations
                             AreaofCultivation = "50Acres",
                             CreatedBy = "Sam",
                             CreatedOn = new DateTime(2022, 1, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Maize Cultivation",
                             EstimatedPrice = "Rs. 25,000.00",
                             IsAccepted = false,
                             IsAvailable = true,
                             IsDeleted = false,
                             Lastmodifieddate = new DateTime(2022, 1, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Location = "Anuradhapura",
-                            StartingDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified).AddTicks(505)
+                            Location = "Anuradhapura"
                         },
                         new
                         {
@@ -129,13 +131,13 @@ namespace AdDemo.DataAccess.Migrations
                             AreaofCultivation = "20Acres",
                             CreatedBy = "Peter",
                             CreatedOn = new DateTime(2022, 2, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Cocoa Cultivation",
                             EstimatedPrice = "Rs. 75,000.00",
                             IsAccepted = false,
                             IsAvailable = true,
                             IsDeleted = false,
                             Lastmodifieddate = new DateTime(2022, 2, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Location = "Colombo",
-                            StartingDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified).AddTicks(505)
+                            Location = "Colombo"
                         },
                         new
                         {
@@ -144,13 +146,13 @@ namespace AdDemo.DataAccess.Migrations
                             AreaofCultivation = "100Acres",
                             CreatedBy = "Michael",
                             CreatedOn = new DateTime(2022, 1, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Carrot Cultivation",
                             EstimatedPrice = "Rs. 100,000.00",
                             IsAccepted = false,
                             IsAvailable = true,
                             IsDeleted = false,
                             Lastmodifieddate = new DateTime(2022, 1, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Location = "Kandy",
-                            StartingDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified).AddTicks(505)
+                            Location = "Kandy"
                         },
                         new
                         {
@@ -159,13 +161,13 @@ namespace AdDemo.DataAccess.Migrations
                             AreaofCultivation = "40Acres",
                             CreatedBy = "Mary",
                             CreatedOn = new DateTime(2022, 1, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Cabbage Cultivation",
                             EstimatedPrice = "Rs. 10,000.00",
                             IsAccepted = false,
                             IsAvailable = true,
                             IsDeleted = false,
                             Lastmodifieddate = new DateTime(2022, 1, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Location = "Badulla",
-                            StartingDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified).AddTicks(505)
+                            Location = "Badulla"
                         });
                 });
 
@@ -455,11 +457,11 @@ namespace AdDemo.DataAccess.Migrations
                         {
                             Id = 1,
                             CreatedBy = "M.N. nisha",
-                            CreatedOn = new DateTime(2022, 4, 11, 8, 37, 2, 663, DateTimeKind.Local).AddTicks(820),
-                            DeletedOn = new DateTime(2022, 4, 11, 8, 37, 2, 663, DateTimeKind.Local).AddTicks(838),
+                            CreatedOn = new DateTime(2022, 3, 23, 16, 55, 58, 279, DateTimeKind.Local).AddTicks(4065),
+                            DeletedOn = new DateTime(2022, 3, 23, 16, 55, 58, 279, DateTimeKind.Local).AddTicks(4080),
                             DeletedRemarks = "#####",
                             IsAvailable = true,
-                            LastUpdatedOn = new DateTime(2022, 4, 11, 8, 37, 2, 663, DateTimeKind.Local).AddTicks(837),
+                            LastUpdatedOn = new DateTime(2022, 3, 23, 16, 55, 58, 279, DateTimeKind.Local).AddTicks(4078),
                             Password = "n",
                             UserName = "nisha"
                         },
@@ -467,11 +469,11 @@ namespace AdDemo.DataAccess.Migrations
                         {
                             Id = 2,
                             CreatedBy = "M.N. Zanda",
-                            CreatedOn = new DateTime(2022, 4, 11, 8, 37, 2, 663, DateTimeKind.Local).AddTicks(840),
-                            DeletedOn = new DateTime(2022, 4, 11, 8, 37, 2, 663, DateTimeKind.Local).AddTicks(842),
+                            CreatedOn = new DateTime(2022, 3, 23, 16, 55, 58, 279, DateTimeKind.Local).AddTicks(4082),
+                            DeletedOn = new DateTime(2022, 3, 23, 16, 55, 58, 279, DateTimeKind.Local).AddTicks(4085),
                             DeletedRemarks = "######",
                             IsAvailable = true,
-                            LastUpdatedOn = new DateTime(2022, 4, 11, 8, 37, 2, 663, DateTimeKind.Local).AddTicks(841),
+                            LastUpdatedOn = new DateTime(2022, 3, 23, 16, 55, 58, 279, DateTimeKind.Local).AddTicks(4084),
                             Password = "m",
                             UserName = "Zanda"
                         });
@@ -517,22 +519,22 @@ namespace AdDemo.DataAccess.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2022, 4, 11, 8, 37, 2, 663, DateTimeKind.Local).AddTicks(1093),
-                            DeletedOn = new DateTime(2022, 4, 11, 8, 37, 2, 663, DateTimeKind.Local).AddTicks(1095),
+                            CreatedDate = new DateTime(2022, 3, 23, 16, 55, 58, 279, DateTimeKind.Local).AddTicks(4276),
+                            DeletedOn = new DateTime(2022, 3, 23, 16, 55, 58, 279, DateTimeKind.Local).AddTicks(4278),
                             District = "Vavniya",
                             IsDeleted = false,
-                            LastUpdatedOn = new DateTime(2022, 4, 11, 8, 37, 2, 663, DateTimeKind.Local).AddTicks(1094),
+                            LastUpdatedOn = new DateTime(2022, 3, 23, 16, 55, 58, 279, DateTimeKind.Local).AddTicks(4277),
                             Name = "Samadhi",
                             UserType = "Farmer"
                         },
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2022, 4, 11, 8, 37, 2, 663, DateTimeKind.Local).AddTicks(1097),
-                            DeletedOn = new DateTime(2022, 4, 11, 8, 37, 2, 663, DateTimeKind.Local).AddTicks(1098),
+                            CreatedDate = new DateTime(2022, 3, 23, 16, 55, 58, 279, DateTimeKind.Local).AddTicks(4281),
+                            DeletedOn = new DateTime(2022, 3, 23, 16, 55, 58, 279, DateTimeKind.Local).AddTicks(4283),
                             District = "Vavniya",
                             IsDeleted = false,
-                            LastUpdatedOn = new DateTime(2022, 4, 11, 8, 37, 2, 663, DateTimeKind.Local).AddTicks(1097),
+                            LastUpdatedOn = new DateTime(2022, 3, 23, 16, 55, 58, 279, DateTimeKind.Local).AddTicks(4282),
                             Name = "Samadhi",
                             UserType = "Farmer"
                         });

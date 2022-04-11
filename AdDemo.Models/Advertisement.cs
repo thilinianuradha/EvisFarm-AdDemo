@@ -10,7 +10,7 @@ namespace AdDemo.Models
     {
         public int Id { get; set; }
         public string? Location { get; set; }
-        public string? Description { get; set; }
+        public DateTime StartingDate { get; set; }
         public string? EstimatedPrice { get; set; }
         public string? AreaofCultivation { get; set; }
         public string? CreatedBy { get; set; }
@@ -27,6 +27,6 @@ namespace AdDemo.Models
         //public Crop Crop { get; set; }
 
 
-        public List<Pending_Request> Pending_Requests { get; set; }
+        public ICollection<Pending_Request> Pending_Requests { get; set; }
     }
 }
